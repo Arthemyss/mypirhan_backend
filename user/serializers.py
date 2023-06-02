@@ -5,7 +5,6 @@ from django.contrib.auth.models import update_last_login
 
 from django.contrib.auth import get_user_model, authenticate
 # For outputing any text to the screen its good idea use this translation tool(gettext_lazy)
-from django.utils.translation import gettext_lazy as _
 
 
 JWT_PAYLOAD_HANDLER = api_settings.JWT_PAYLOAD_HANDLER
@@ -107,7 +106,7 @@ class AuthTokenSerializer(serializers.Serializer):
             password=password
         )
         if not user:
-            msg = _('Unable to authenticate with provided credentials')
+            msg = 'Unable to authenticate with provided credentials'
             raise serializers.ValidationError(msg, code='authenticate')
 
         attrs['user'] = user

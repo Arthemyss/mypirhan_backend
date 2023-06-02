@@ -3,7 +3,6 @@ from core import models
 
 # from django.contrib.auth.admin import UserAdmin
 # from django.contrib.auth import get_user_model
-# from django.utils.translation import gettext as _
 
 
 """ This class creted for updating admin for support custom user model"""
