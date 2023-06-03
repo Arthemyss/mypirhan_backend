@@ -7,14 +7,16 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from user.serializers import UserSerializer, UserRegisterSerializer, AuthTokenSerializer
 
 
+# This is for JWT token
 class CreateUserView(generics.CreateAPIView):
-    """Create a new user in the system"""
+    """Create a new user in the system and return JWT token"""
     serializer_class = UserRegisterSerializer
     permission_classes = (AllowAny,)
 
 
-class CreateTokenView(ObtainAuthToken):
-    """Create a new auth token for user"""
+#This is drf token to JWT token
+class GetTokenView(ObtainAuthToken):
+    """Retrun drf auth token for existing user"""
     serializer_class = AuthTokenSerializer
     # Is to see this endpoint in to browser ---> browsable api
     renderred_classes = api_settings.DEFAULT_RENDERER_CLASSES
